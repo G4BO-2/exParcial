@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{%load static%}
+
+{% block title %}
+Registrar Articulo
+{% endblock %}
+
+{% block contenido %}
+
+<h2 class="ms-3 mb-3 mt-3">Registro Articulo</h2>
+
+<form class="p-0 m-0" method="post" action="{% url 'wikiApp:registroArticulo'%}">
+    {% csrf_token %}
+    <div class="form-floating mb-3 ms-3">
+        <input type="text" class="form-control w-50" id="floatingInput" placeholder="Titulo del Articulo"
+            name="tituloArticulo">
+        <label for="floatingInput">Titulo del Articulo</label>
+    </div>
+    <div class="form-floating mb-3 ms-3">
+        <input type="text" class="form-control w-50" id="floatingInput" placeholder="Contenido del articulo"
+            name="contenidoArticulo">
+        <label for="floatingInput">Contenido</label>
+    </div>
+    <div class="ms-3">
+        <label>Seleccionar Tema</label>
+        <select class="form-select w-50" name="temaSeleccionado">
+            <option value="" selected>Abre para seleccionar</option>
+            {% for temaInfo in listaTema %}
+            <option value="{{ temaInfo.id }}">{{ temaInfo.nombreTema }}</option>
+            {% endfor %}
+
+
+        </select>
+    </div>
+
+    <input class="btn btn-outline-secondary mt-3 ms-3" type="submit" value="Registrar">
+</form>
+
+{% endblock %}

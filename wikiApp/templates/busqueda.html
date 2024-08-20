@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{%load static%}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block contenido %}
+
+{% for articuloInfo in listaArticulo %}
+<div class="card w-75 mt-4" id="card">
+    <div class="card-body ">
+        <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+            href="{% url 'wikiApp:vistaArticulo' articuloInfo.id %}">{{ articuloInfo.tituloArticulo }}</a>
+        <p>{{articuloInfo.contenidoArticulo}}</p>
+    </div>
+</div>
+
+<!-- <script>
+    buscar = document.getElementById('buscar');
+    card = document.getElementById('card')
+    img = document.getElementById('img')
+    buscar.addEventListener("click", () => {
+        img.style.display = "none"
+        card.style.display = "block"
+    })
+
+</script> -->
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{%load static%}
+
+{% block title %}
+Registrar Tema
+{% endblock %}
+
+{% block contenido %}
+
+<h2 class="ms-3 mb-3 mt-3">Registro Temas</h2>
+
+<form class="p-0 ms-3" method="post" action="{% url 'wikiApp:registroTema' %}">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control w-50" id="floatingInput" placeholder="Nombre Tema" name="nombreTema">
+        <label for="floatingInput">Nombre del Tema</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control w-50" id="floatingInput" placeholder="descripcion..."
+            name="descripcionTema">
+        <label for="floatingInput">Descripcion</label>
+    </div>
+    <input class="btn btn-outline-secondary" type="submit" value="Registrar">
+</form>
+
+{% endblock %}

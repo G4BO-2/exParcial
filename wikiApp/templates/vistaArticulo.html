@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ objArticulo.tituloArticulo }}
+{% endblock %}
+
+{% block contenido %}
+<h1>{{objArticulo.tituloArticulo}}</h1>
+<p>{{ objArticulo.contenidoArticulo}}</p>
+<p class="fst-italic"> {{ objArticulo.temaRelacionado.nombreTema}}</p>
+{% endblock %}
